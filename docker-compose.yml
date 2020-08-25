@@ -1,5 +1,9 @@
 version: '3.7'
 
+volumes:
+  prometheus: {}
+  grafana: {}
+
 services:
 
   prometheus:
@@ -8,7 +12,7 @@ services:
       - app
     volumes:
       - ./infra/prometheus/:/etc/prometheus/
-      - ./data/prometheus_data:/prometheus
+      - prometheus:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -18,12 +22,11 @@ services:
 
   grafana:
     image: grafana/grafana
-    user: "472"
     depends_on:
       - prometheus
       - app
     volumes:
-      - ./data/grafana_data:/var/lib/grafana
+      - grafana:/var/lib/grafana
       - ./infra/grafana/provisioning/:/etc/grafana/provisioning/
     env_file:
       - ./infra/grafana/config.monitoring
