@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1598378908110,
+  "iteration": 1598381462316,
   "links": [],
   "panels": [
     {
@@ -259,9 +258,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "100.0",
-          "value": "100.0"
+          "selected": true,
+          "text": "100",
+          "value": "100"
         },
         "datasource": "Prometheus",
         "definition": "label_values(tele2_lots{data_type=\"$data_type\"}, volume)",
@@ -275,7 +274,7 @@
         "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 0,
+        "sort": 3,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -305,5 +304,5 @@
   "timezone": "",
   "title": "Tele2 Market",
   "uid": "ZM8rMEHMz",
-  "version": 3
+  "version": 2
 }
