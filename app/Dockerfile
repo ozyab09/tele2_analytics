@@ -1,7 +1,8 @@
-FROM python:3.8.5-slim-buster
+FROM python:3.14.0-slim-bookworm
 
 COPY requirments.txt /tmp/
 
-RUN pip3 install -r /tmp/requirments.txt
+RUN pip install --no-cache-dir -r /tmp/requirments.txt
 
-CMD ["python3.8", "/app/collector.py"]
+CMD ["python3.14", "/app/collector.py"]
+
