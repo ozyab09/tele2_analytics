@@ -1,8 +1,18 @@
-FROM python:3.14.0-slim-bookworm
+FROM python:3.12-slim
 
-COPY requirments.txt /tmp/
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
 
-RUN pip install --no-cache-dir -r /tmp/requirments.txt
+WORKDIR /app
 
-CMD ["python3.14", "/app/collector.py"]
+COPY pyproject.toml ./
+COPY src ./src
 
+RUN pip install --no-cache-dir .
+
+USER nobody
+
+EXPOSE 8080
+
+CMD ["tele2-collector"]
