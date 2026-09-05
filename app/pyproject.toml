@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "tele2-analytics"
 version = "1.0.0"
 description = "Tele2 Market lots analytics collector"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "requests>=2.31.0",
     "prometheus-client>=0.16.0",
@@ -32,7 +32,7 @@ addopts = "-q"
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
