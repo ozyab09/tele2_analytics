@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tele2-analytics"
+version = "1.0.0"
+description = "Tele2 Market lots analytics collector"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.31.0",
+    "prometheus-client>=0.16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "requests-mock>=1.11.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+tele2-collector = "tele2_analytics.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

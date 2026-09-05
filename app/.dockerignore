@@ -1,0 +1,13 @@
+.git
+.gitignore
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.venv
+venv
+tests
+Dockerfile
+.dockerignore
+*.md
+.DS_Store
